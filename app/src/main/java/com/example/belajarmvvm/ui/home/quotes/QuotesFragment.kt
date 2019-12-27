@@ -6,16 +6,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.Observer
 
 import com.example.belajarmvvm.R
+import com.example.belajarmvvm.util.Coroutines
+import com.example.belajarmvvm.util.toast
+import org.kodein.di.android.x.kodein
+import org.kodein.di.KodeinAware
+import org.kodein.di.generic.instance
 
-class QuotesFragment : Fragment() {
+class QuotesFragment : Fragment(), KodeinAware {
+    override val kodein by kodein()
 
-    companion object {
-        fun newInstance() = QuotesFragment()
-    }
 
     private lateinit var viewModel: QuotesViewModel
+    val factory : QuotesViewModelFactory by instance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,7 +32,13 @@ class QuotesFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(QuotesViewModel::class.java)
-        // TODO: Use the ViewModel
+
+        Coroutines.main {
+            val quotes = viewModel.quotes.await()
+            quotes.observe(this, Observer {
+                context?.toast(it.size.toString())
+            })
+        }
     }
 
 }

@@ -9,4 +9,9 @@
         android:id="@+id/profileFragment"
         android:name="com.example.belajarmvvm.ui.home.profile.ProfileFragment"
         android:label="Profile" />
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="com.example.belajarmvvm.ui.home.quotes.QuotesFragment"
+        android:label="Quotes"
+        tools:layout="@layout/quotes_fragment" />
 </navigation>
