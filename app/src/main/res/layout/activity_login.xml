@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.belajarmvvm.ui.auth.AuthViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg"
+        tools:context=".ui.auth.LoginActivity">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_login"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:padding="15dp"
+            android:gravity="center">
+
+
+
+            <EditText
+                android:text="@={viewModel.email}"
+                android:id="@+id/et_email_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="10dp"
+                android:inputType="textEmailAddress"
+                android:hint="EMAIL"/>
+
+            <EditText
+                android:text="@={viewModel.password}"
+                android:id="@+id/et_pass_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/ic_pass"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:hint="PASSWORD"/>
+
+            <Button
+                android:onClick="@{viewModel::onLoginButtonClick}"
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:textSize="20sp"
+                android:text="Login"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tidak mempunyai akun?"/>
+
+            <TextView
+                android:id="@+id/tv_daftarklik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="KLIK DISINI UNTUK DAFTAR"
+                android:onClick="@{viewModel::onChangeActivity}"
+                android:textColor="@color/colorAccent"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:id="@+id/pb_login"
+            android:progressTint="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+
+
+    </LinearLayout>
+</layout>

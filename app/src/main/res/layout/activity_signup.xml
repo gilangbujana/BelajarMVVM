@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.belajarmvvm.ui.auth.AuthViewModel" />
+    </data>
+
+
+    <LinearLayout
+        android:id="@+id/root_layout_signup"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg"
+        tools:context=".ui.auth.SignupActivity">
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_login"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:background="@color/white"
+            android:padding="15dp"
+            android:gravity="center">
+
+
+
+            <EditText
+                android:text="@={viewmodel.name}"
+                android:id="@+id/et_name_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:drawableLeft="@drawable/ic_name"
+                android:drawablePadding="10dp"
+                android:hint="NAMA"/>
+
+            <EditText
+                android:text="@={viewmodel.email}"
+                android:id="@+id/et_email_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:padding="10dp"
+                android:inputType="textEmailAddress"
+                android:drawableLeft="@drawable/ic_email"
+                android:drawablePadding="10dp"
+                android:hint="EMAIL"/>
+
+            <EditText
+                android:text="@={viewmodel.password}"
+                android:id="@+id/et_pass_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/ic_pass"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:hint="PASSWORD"/>
+
+            <EditText
+                android:text="@={viewmodel.passwordConfirm}"
+                android:id="@+id/et_repass_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:drawableLeft="@drawable/ic_pass"
+                android:drawablePadding="10dp"
+                android:inputType="textPassword"
+                android:hint="RE-TYPE PASSWORD"/>
+
+            <Button
+                android:id="@+id/btn_signup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:layout_marginBottom="5dp"
+                android:background="@color/white"
+                android:textSize="20sp"
+                android:onClick="@{viewmodel::onSignupButtonClick}"
+                android:text="DAFTAR"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sudah mempunyai akun?"/>
+
+            <TextView
+                android:id="@+id/tv_masuklik"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{viewmodel::onChangeActivity}"
+                android:text="KLIK DISINI UNTUK MASUK"
+                android:textColor="@color/colorAccent"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="invisible"
+            android:progressTint="@color/white"
+            android:id="@+id/pb_signup"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+
+    </LinearLayout>
+</layout>
