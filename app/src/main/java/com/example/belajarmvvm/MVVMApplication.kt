@@ -8,6 +8,7 @@ import com.example.belajarmvvm.data.repositories.QuotesRepository
 import com.example.belajarmvvm.data.repositories.UserRepository
 import com.example.belajarmvvm.ui.auth.AuthViewModelFactory
 import com.example.belajarmvvm.ui.home.profile.ProfileViewModelFactory
+import com.example.belajarmvvm.ui.home.quotes.QuotesViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -28,6 +29,7 @@ class MVVMApplication : Application(), KodeinAware {
         bind() from singleton { QuotesRepository(instance(), instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
         bind() from provider { ProfileViewModelFactory(instance()) }
+        bind() from provider { QuotesViewModelFactory(instance()) }
     }
 
 }
