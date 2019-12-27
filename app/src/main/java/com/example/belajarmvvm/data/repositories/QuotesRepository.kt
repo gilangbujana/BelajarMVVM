@@ -6,8 +6,4 @@ import com.example.belajarmvvm.data.network.MyApi
 class QuotesRepository(
     private val api: MyApi,
     private val db: AppDatabase
-) {
-
-
-
-}
+) {}
