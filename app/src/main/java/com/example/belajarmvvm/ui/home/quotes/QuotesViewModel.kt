@@ -1,7 +1,10 @@
 package com.example.belajarmvvm.ui.home.quotes
 
 import androidx.lifecycle.ViewModel
+import com.example.belajarmvvm.data.repositories.QuotesRepository
 
-class QuotesViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class QuotesViewModel(
+    private val repository : QuotesRepository
+) : ViewModel() {
+    
 }
