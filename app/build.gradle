@@ -15,7 +15,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.belajarmvvm"
-        minSdkVersion 15
+        minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -78,5 +78,8 @@ dependencies {
     implementation "com.xwray:groupie:2.7.0"
     implementation "com.xwray:groupie-kotlin-android-extensions:2.7.0"
     implementation "com.xwray:groupie-databinding:2.7.0"
+
+    //Preference Android X KTX
+    implementation "androidx.preference:preference-ktx:1.1.0"
 
 }
