@@ -31,7 +31,7 @@ class QuotesFragment : Fragment(), KodeinAware {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(QuotesViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, factory).get(QuotesViewModel::class.java)
 
         Coroutines.main {
             val quotes = viewModel.quotes.await()
