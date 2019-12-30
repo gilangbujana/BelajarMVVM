@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.belajarmvvm.data.db.AppDatabase
 import com.example.belajarmvvm.data.network.MyApi
 import com.example.belajarmvvm.data.network.NetworkConnectionInterceptor
+import com.example.belajarmvvm.data.preferences.PreferenceProvider
 import com.example.belajarmvvm.data.repositories.QuotesRepository
 import com.example.belajarmvvm.data.repositories.UserRepository
 import com.example.belajarmvvm.ui.auth.AuthViewModelFactory
@@ -25,8 +26,9 @@ class MVVMApplication : Application(), KodeinAware {
         bind() from singleton { NetworkConnectionInterceptor(instance()) }
         bind() from singleton { MyApi(instance()) }
         bind() from singleton { AppDatabase(instance()) }
+        bind() from singleton { PreferenceProvider(instance()) }
         bind() from singleton { UserRepository(instance(), instance()) }
-        bind() from singleton { QuotesRepository(instance(), instance()) }
+        bind() from singleton { QuotesRepository(instance(), instance(), instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
         bind() from provider { ProfileViewModelFactory(instance()) }
         bind() from provider { QuotesViewModelFactory(instance()) }

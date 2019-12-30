@@ -15,11 +15,15 @@ class PreferenceProvider(
         get() = PreferenceManager.getDefaultSharedPreferences(appContext)
 
 
-    fun savelastSavedAt(savedAt: String){
+    fun saveLastSavedAt(savedAt: String){
         preference.edit().putString(
             KEY_SAVED_AT,
             savedAt
         ).apply()
+    }
+
+    fun getLastSavedAt(): String? {
+        return preference.getString(KEY_SAVED_AT, null)
     }
 
 }
