@@ -5,6 +5,8 @@ import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
+import org.joda.time.Interval
+import java.util.*
 
 
 fun Context.toast(message: String){
@@ -25,4 +27,11 @@ fun View.snackbar(message: String){
             snackbar.dismiss()
         }
     }.show()
+}
+
+fun getDiffHours(startDate: Date, endDate: Date): Int{
+
+    var interval = Interval(startDate.getTime(), endDate.getTime());
+    var period = interval.toPeriod();
+    return period.getHours();
 }
